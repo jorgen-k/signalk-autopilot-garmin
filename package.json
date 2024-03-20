@@ -3,22 +3,12 @@
   "version": "0.1.0",
   "description": "SignalK Plugin that controls a Garmin autopilot",
   "main": "index.js",
-  "scripts": {
-    "test": "$NODE $npm_package_main",
-    "create-release": "github-create-release --repository signalk-autopilot-garmin",
-    "release": "git tag -d v$npm_package_version; git tag v$npm_package_version && git push --tags && git push && npm run create-release",
-    "start": "webpack serve --config webpack.dev.config.js",
-    "build": "webpack --config webpack.prod.config.js --progress",
-    "prepublishOnly": "npm run build"
-  },
   "keywords": [
     "signalk-node-server-plugin"
   ],
   "author": "Jörgen Karlsson <jorgen@karlsson.com>",
   "license": "Apache-2.0",
-  "dependencies": {
-   
-  },
+  "dependencies": {},
   "devDependencies": {
     "copy-webpack-plugin": "^11.0.0",
     "html-minimizer-webpack-plugin": "^4.4.0",
@@ -29,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jorgen-k/signalk-autopilot-garmin"
+    "url": "git+https://github.com/jorgen-k/signalk-autopilot-garmin.git"
   },
   "signalk": {
     "appIcon": "./icon.webp",
