@@ -22,7 +22,7 @@ Note that a GHC-20 or GHC-50 needs to be installed in the system following Garmi
 
 ### Installation
 
-For now has to be manually installed, will be available in the appstore in a comming version.
+Install the plugin via appstore in your SignalK server. Do not forget to activate it by pressing submit in the settings. Default settings are probably good enough.
 
 ### Configuration Options
 
