@@ -9,7 +9,7 @@
 - Reactor™ 40 CCU
 - GHC-20
 
-NMEA200 connection via an [YDEN-02](https://www.yachtdevices.com.au/nmea-2000-ethernet-gateway-yden-02/)
+NMEA2000 connection via an [YDEN-02](https://www.yachtdevices.com.au/nmea-2000-ethernet-gateway-yden-02/)
 
 Note that a GHC-20 or GHC-50 needs to be installed in the system following Garmins recommendations.
 
@@ -84,6 +84,8 @@ Copy the code below and import it on your Node Red flow.
 
 ## Remote control 
 This example makes it possible to control the autopilot via a remote control. I choosed an Ikea Tradfri remote that has five buttons, but of course you can choose any and adjust as necessary. The Ikea Tradfri is integrated to node red via mqtt and zigbee2mqtt.
+
+And for a couple of dollars I have a remote to my autopilot! 
 
 ![IKEA Trådfri](images/tradfri.png)
 
