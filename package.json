@@ -12,16 +12,14 @@
     "prepublishOnly": "npm run build"
   },
   "keywords": [
-    "signalk-node-server-plugin",
-    "signalk-webapp"
+    "signalk-node-server-plugin"
   ],
-  "author": "jorgen@karlsson.com",
-  "license": "ISC",
+  "author": "Jörgen Karlsson <jorgen@karlsson.com>",
+  "license": "Apache-2.0",
   "dependencies": {
-    "lodash": "^4.17.15"
+   
   },
   "devDependencies": {
-    "@signalk/github-create-release": "^1.0.1",
     "copy-webpack-plugin": "^11.0.0",
     "html-minimizer-webpack-plugin": "^4.4.0",
     "webpack": "^5.88.2",
@@ -34,7 +32,7 @@
     "url": "https://github.com/jorgen-k/signalk-autopilot-garmin"
   },
   "signalk": {
-    "appIcon": "./appIcon-72x72.png",
+    "appIcon": "./icon.webp",
     "displayName": "SignalK Garmin Autopilot"
   }
 }

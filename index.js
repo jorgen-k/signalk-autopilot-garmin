@@ -84,11 +84,7 @@ module.exports = function (app) {
       }
     };
 
-    Object.values(pilots).forEach(autopilot => {
-      if (autopilot && autopilot.properties) {
-        config.properties = { ...autopilot.properties(), ...config.properties };
-      }
-    });
+    config.properties = { ...autopilot.properties(), ...config.properties };
     return config;
   };
 

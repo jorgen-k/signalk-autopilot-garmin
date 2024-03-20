@@ -34,14 +34,15 @@ const stateCodeMap = {
 
 
 module.exports = function(app) {
-  const myN2kAddr = '3'; // TODO: Calculate automatically
+  var srcAddr = '3'; // TODO: Calculate automatically
   var ccuAddr = '0';  // Will be discovered
   var pilot = { id: ccuAddr };
   var discovered = false;
   var hwVersion;
 
   pilot.start = (props) => {
-    ccuAddr = props.deviceId || ccuAddr;
+    ccuAddr = props.ccuAddr || ccuAddr;
+    srcAddr = props.srcAddr; // TODO: Calculate automatically
     pilot.id = ccuAddr;
     app.debug('Garmin autopilot started:', ccuAddr);
   };
@@ -53,27 +54,28 @@ module.exports = function(app) {
   function sendNmea2000(msg) {
     app.debug("nmea2000out: " + msg);
     app.emit('nmea2000out', msg);
-    // TODO: Fault handling
   }
 
   pilot.putState = (context, path, value, cb) => {
+    app.debug(`putState: ${value}`);
     var code = stateCodeMap[value];
     if (code === undefined) {
       return { message: `Invalid state: ${value}`, ...failureRes };
     } else {
-      let msg = generateMsg(myN2kAddr, ccuAddr, changeStateCommand(code));
+      let msg = generateMsg(srcAddr, ccuAddr, changeStateCommand(code));
       sendNmea2000(msg);
       return successRes;
     }
   };
 
   pilot.putAdjustHeading = (context, path, value, cb) => {
+    app.debug(`putAdjustHeading: ${value}`);
     const code = headingCodeMap.get(value);
     if (code === undefined) { 
       console.log("Unimplemented code for /" + value + "/");
       return { message: `Invalid adjustment: ${value}`, ...failureRes };
     } else {
-      sendNmea2000(generateMsg(myN2kAddr, ccuAddr, changeHeadingCommand(code)));
+      sendNmea2000(generateMsg(srcAddr, ccuAddr, changeHeadingCommand(code)));
       return successRes;
     }
   };
@@ -102,13 +104,19 @@ module.exports = function(app) {
 
     description = discovered ? `Discovered a ${hwVersion} with address ${ccuAddr}` : `No CCU discovered, using address ${ccuAddr}`;
     app.debug(description);
-    pilot.id = ccuAddr;     
+    pilot.id = ccuAddr;  
     return {
-      deviceId: {
+      ccuAddr: {
         type: "string",
-        title: "Garmin NMEA2000 ID",
+        title: "Garmin CCU NMEA2000 ID",
         description: description,
         default: ccuAddr
+      },
+      srcAddr: {
+        type: "string",
+        title: "Source Address for plugin",
+        description: "Use a free adress.",
+        default: "3"
       }
     };
   };
