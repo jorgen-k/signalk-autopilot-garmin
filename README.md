@@ -13,10 +13,17 @@ NMEA2000 connection via an [YDEN-02](https://www.yachtdevices.com.au/nmea-2000-e
 
 Note that a GHC-20 or GHC-50 needs to be installed in the system following Garmins recommendations.
 
-
 ## Alpha Version Warning
 
 **Caution**: This is an alpha version of the software. Use with caution as there may be bugs and incomplete features. We welcome bug reports and feature requests on our [GitHub issues page](https://github.com/jorgen-k/signalk-autopilot-garmin/issues).
+
+## Changes
+
+### v0.1.1
+Fixed #1. Undefined property at startup.
+
+### v0.1.0
+Initial Alpha version
 
 ## Getting Started
 

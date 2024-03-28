@@ -1,6 +1,6 @@
 {
   "name": "signalk-autopilot-garmin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "SignalK Plugin that controls a Garmin autopilot",
   "main": "index.js",
   "keywords": [
