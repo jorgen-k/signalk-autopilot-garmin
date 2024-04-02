@@ -30,6 +30,7 @@ const headingCodeMap = new Map([
 const stateCodeMap = {
   auto:     `05`,
   standby:  `02`,
+  wind:     `11`,
 };
 
 
